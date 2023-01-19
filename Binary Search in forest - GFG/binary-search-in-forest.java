@@ -39,26 +39,25 @@ class Solution
                 end=tree[i];
             }
         }
-        for(int machine_height=start;machine_height<end;machine_height++){
+        
+        ///////////////---wood collected-----////////////////////////
+        while(start<=end){
             int wood_collected=0;
-            
-            
-            
-            
-///////////////------height of tree which will be cut------////////////////////
+            int machine_height=(start+end)/2;
             for(int i=0;i<length;i++){
                 if(machine_height<tree[i]){
-                wood_collected+=tree[i]-machine_height;
+                    wood_collected+=tree[i]-machine_height;
                 }
             }
-            
-            
-            
-//////////////-------wood collected at that height is same then the machine height is accurate------////////////            
+        
+        /////////---checking whether wood collected is equal to the required total wood or not---//////    
             if(wood_collected==total_wood){
                 return machine_height;
+            }else if(wood_collected>total_wood){
+                start=machine_height+1;
+            }else{
+                end=machine_height-1;
             }
-        
         }
         return -1;
     }
