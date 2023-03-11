@@ -31,9 +31,10 @@ class Reverse
     // str: input string
     public static String reverseWord(String str)
     {
+        //Base condition
        if(str.isEmpty())
        return str;
        
-       return reverseWord(str.substring(1))+str.charAt(0);
+       return reverseWord(str.substring(1))+str.charAt(0);//recursion
     }
 }
